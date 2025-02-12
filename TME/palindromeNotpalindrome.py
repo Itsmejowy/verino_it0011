@@ -1,12 +1,20 @@
-def is_palindrome(n):
-    return str(n) == str(n)[::-1]
+file_path = "C:\Users\JUDITH\OneDrive\Documents\verino_it0011\verino_it0011\TME"
 
-def process_file(filename):
-    with open(filename, 'r') as file:
-        for i, line in enumerate(file, 1):
-            numbers = list(map(int, line.strip().split(',')))
-            total = sum(numbers)
-            result = "Palindrome" if is_palindrome(total) else "Not a palindrome"
-            print(f"Line {i}: {', '.join(map(str, numbers))} (sum {total}) - {result}")
+with open(file_path, "r") as file:
+    lines = file.readlines()
+    line_number = 1
+    for line in lines:
+        numbers = line.strip().split(',')
+        total = 0
+        for num in numbers:
+            total = total + int(num)
+        sum_str = str(total)
 
-process_file("numbers.txt")
+        if sum_str == sum_str[::-1]:
+            result = "Palindrome"
+        else:
+            result = "Not a palindrome"
+        print ("----------------------------------------------------------")
+        print(f"Line {line_number}: {line.strip()} (sum {total}) - {result}")
+        print ("----------------------------------------------------------")
+        line_number = line_number + 1
