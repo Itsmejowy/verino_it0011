@@ -1,0 +1,10 @@
+first_name = "Serjo"
+last_name = "Mbappe"
+
+full_name = first_name + " " + last_name
+
+sliced_first_name = first_name[:3]
+
+greeting_message = f"Hello, {sliced_first_name}!"
+
+print(greeting_message)
